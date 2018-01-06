@@ -1,0 +1,1 @@
+web:    java -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Addresses=true -Dswarm.http.port=$PORT -jar target/academy-swarm.jar
