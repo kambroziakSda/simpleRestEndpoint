@@ -12,7 +12,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Stateless
 public class StudentResource {
 
-    private static final Map<String, Student> STUDENTS = new ConcurrentHashMap<String, Student>();
+    private static final Map<String, StudentResponse> STUDENTS = new ConcurrentHashMap<>();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -24,7 +24,7 @@ public class StudentResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addStudent(Student student) {
-        STUDENTS.put(student.getLastName(), student);
+        STUDENTS.put(student.getLastName(), new StudentResponse(student));
         return Response.ok().build();
     }
 
