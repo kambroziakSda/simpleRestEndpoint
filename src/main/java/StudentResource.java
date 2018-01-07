@@ -24,8 +24,9 @@ public class StudentResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response addStudent(Student student) {
-        STUDENTS.put(student.getLastName(), new StudentResponse(student));
-        return Response.ok().build();
+        StudentResponse value = new StudentResponse(student);
+        STUDENTS.put(student.getLastName(), value);
+        return Response.ok(value).build();
     }
 
 
